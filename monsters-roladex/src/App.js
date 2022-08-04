@@ -1,18 +1,31 @@
 import logo from './logo.svg';
 import './App.css';
+import { Component } from 'react';
 
-function App() {
-  return (
+class App extends Component{
+  constructor(){
+    super();
+    this.state={
+      monsters:[
+        {
+          name:'Dhruv',
+          id:'143r2345'
+        },
+        {
+          name:'Kedia',
+          id:'245ewwe'
+        }
+      ]
+    }
+  }
+  render(){
+    return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          My Name is Dhruv
-        </p>
-        <button>Change Name</button>
-      </header>
+      {this.state.monsters.map((monster)=>{
+        return <h1 key={monster.id}>{monster.name}</h1>
+      })}
     </div>
-  );
+  )}
 }
 
 export default App;
